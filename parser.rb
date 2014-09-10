@@ -2,7 +2,6 @@ require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
 
-スクレイピング先のURL
 url = 'http://matome.naver.jp/tech'
 
 charset = nil
