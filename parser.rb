@@ -2,6 +2,8 @@ require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
 
+# irb
+
 url = 'http://yahoo.co.jp'
 charset = nil
 
