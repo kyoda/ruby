@@ -16,3 +16,4 @@ doc = Nokogiri::HTML.parse(html, nil, charset)
 
 p doc.title
 
+
