@@ -1,17 +1,18 @@
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
+require 'yaml'
+require 'psych'
+
 
 # irb
 
+conf = YAML.load_file("./parser.conf.yaml")
+url = conf['url']
+p conf['search_word'][0]
+p conf['search_word'][1]
+
 charset = nil
-url = ""
-
-ARGV.each do |arg|
-  url = arg
-end
-
-
 html = open(url) do |f|
   charset = f.charset 
   f.read
