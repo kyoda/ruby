@@ -27,6 +27,7 @@
 *.sql
 *.sqlite
 *.sqlite3
+*.db
 
 # OS generated files #
 ######################
@@ -51,5 +52,5 @@ Thumbs.db
 log/
 tmp/
 vendor/
-.conf*
+*.yaml
 
