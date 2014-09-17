@@ -4,22 +4,15 @@ require 'open-uri'
 require 'yaml'
 require 'psych'
 require 'sqlite3'
-
-db = SQLite3::Database.new("test.db")
-sql =<<EOM
-  CREATE TABLE company(
-    id integer,
-    name varchar(10)
-  );
-EOM
+require 'active_record'
 
 
 # irb
 
-#conf = YAML.load_file("./parser.conf.yaml")
-#url = conf['url']
-#p conf['search_word'][0]
-#p conf['search_word'][1]
+conf = YAML.load_file("./parser.conf.yaml")
+url = conf['url']
+p conf['search_word'][0]
+p conf['search_word'][1]
 
 charset = nil
 html = open(url) do |f|
