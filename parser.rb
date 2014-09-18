@@ -9,13 +9,10 @@ require 'active_record'
 
 # irb
 
-conf = YAML.load_file("./parser.conf.yaml")
-url = conf['url']
-p conf['search_word'][0]
-p conf['search_word'][1]
+c = YAML.load_file("./parser.conf.yaml")
 
 charset = nil
-html = open(url) do |f|
+html = open(c['url']) do |f|
   charset = f.charset 
   f.read
 end
@@ -24,7 +21,7 @@ doc = Nokogiri::HTML.parse(html, nil, charset)
 
 
 # frame
-frame_url = File.dirname(url) + "/" + doc.css('frame')[1]['src']
+frame_url = File.dirname(c['url']) + "/" + doc.css('frame')[1]['src']
 
 
 html = open(frame_url) do |f|
@@ -33,11 +30,14 @@ html = open(frame_url) do |f|
 end
 
 doc = Nokogiri::HTML.parse(html, nil, charset)
-doc.css('td.evennew000 a').each do |link|
+#doc.css('td.evennew000 a').each do |l|
+doc.css('tr').each do |l|
 
-  p link.content
-  p link['href']
+  l.css('td')[0].content
+  l.css('td')[1].content
+  l.css('td')[2].content
+  l.css('td a').attribute('href').value
+  l.css('td')[3].content
 
 end
-
 
