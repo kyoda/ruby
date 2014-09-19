@@ -5,6 +5,8 @@ require 'yaml'
 require 'psych'
 require 'sqlite3'
 require 'active_record'
+require 'pdf/reader'
+require "mail"
 
 c = YAML.load_file("./parser.conf.yaml")
 
@@ -30,7 +32,7 @@ doc = Nokogiri::HTML.parse(html, nil, charset)
 
 # frame
 frame_url = File.dirname(c['url']) + "/" + doc.css('frame')[1]['src']
-
+frame_url = "https://www.release.tdnet.info/inbs/I_list_001_20140918.html"
 html = open(frame_url) do |f|
   charset = f.charset 
   f.read
@@ -42,18 +44,61 @@ doc = Nokogiri::HTML.parse(html, nil, charset)
 
 doc.xpath('//table/tbody/tr').each do |l|
 
-  if l.css('td')[3].content.index(c['search_word'][0]) then
 
+  if l.css('td')[3].content.include?(c['search_word'][0]) then
+
+    com = Company.find_by(day: Date::today.to_s)
     time = l.css('td')[0].content
-    p time
     code = l.css('td')[1].content
-    p code
-    name = l.css('td')[2].content
-    p name
-    pdf = c['pre_url'] + l.css('td a').attribute('href').value
-    p pdf
+    name = l.css('td')[2].content.strip
+    pdf_url = c['pre_url'] + l.css('td a').attribute('href').value
 
-    Company.create(time: time, code: code, name: name, data: pdf)
+    com.each do |c| 
+
+
+      #if ! c['name'].include?(name) then
+
+      #  p "insert"
+      #  io = open(pdf_url, "rb")
+      #  reader = PDF::Reader.new(io)
+
+      #    pdf = ""
+      #    reader.pages.each do |page|
+      #    pdf = page.text
+
+      #  end
+
+      #  Company.create(time: time, code: code, name: name, data: pdf)
+
+
+      #  mail = Mail.new do
+
+      #    from    c['mail']['to'][0]
+      #    to      c['mail']['to'][0]
+      #    cc      c['mail']['to'][1]
+      #    subject name + "(" + code + ")" + c['search_word'][0]
+      #    body    pdf
+      #    charset = "UTF-8"
+
+      #  end
+
+      #  mail.delivery_method(:smtp,
+      #    address:        c['mail']['host'], 
+      #    port:           25,
+      #    )
+      #  mail.deliver
+
+      #  p "ok"
+
+      #else 
+      #  p "aru"
+      #end
+
+    end
+
+
+  else
+    #p "none..."
 
   end
 end
