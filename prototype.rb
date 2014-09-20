@@ -32,7 +32,7 @@ doc = Nokogiri::HTML.parse(html, nil, charset)
 
 # frame
 frame_url = File.dirname(c['url']) + "/" + doc.css('frame')[1]['src']
-frame_url = "https://www.release.tdnet.info/inbs/I_list_001_20140918.html"
+frame_url = c['test_url']
 html = open(frame_url) do |f|
   charset = f.charset 
   f.read
@@ -55,7 +55,7 @@ doc.xpath('//table/tbody/tr').each do |l|
 
     com.each do |c| 
 
-
+      p.c['code'] 
       #if ! c['name'].include?(name) then
 
       #  p "insert"
