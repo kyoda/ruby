@@ -47,7 +47,7 @@ doc.xpath('//table/tbody/tr').each do |l|
 
   if l.css('td')[3].content.include?(c['search_word'][0]) then
 
-    com = Company.find_by(day: Date::today.to_s)
+    com = Company.where(day: Date::today.to_s)
     time = l.css('td')[0].content
     code = l.css('td')[1].content
     name = l.css('td')[2].content.strip
