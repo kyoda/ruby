@@ -20,6 +20,37 @@ class Company < ActiveRecord::Base
 end
 
 
+def mainProcess(c, time, code, name, pdf_url)
+
+  io = open(pdf_url, "rb")
+  reader = PDF::Reader.new(io)
+
+  pdf = ""
+  reader.pages.each do |page|
+    pdf = page.text
+  end
+
+
+  Company.create(time: time, code: code, name: name, url: pdf_url, data: pdf)
+
+  mail = Mail.new do
+
+    from    c['mail']['to'][0]
+    to      c['mail']['to'][0]
+    cc      c['mail']['to'][1]
+    subject name + "(" + code + ")" + c['search_word'][0]
+    body    pdf
+    charset = "UTF-8"
+
+  end
+
+  mail.delivery_method(:smtp,
+      address:        c['mail']['host'], 
+      port:           25,
+      )
+  mail.deliver
+
+end
 
 charset = nil
 html = open(c['url']) do |f|
@@ -47,59 +78,42 @@ doc.xpath('//table/tbody/tr').each do |l|
 
   if l.css('td')[3].content.include?(c['search_word'][0]) then
 
-    com = Company.where(day: Date::today.to_s)
-    time = l.css('td')[0].content
-    code = l.css('td')[1].content
+    time = l.css('td')[0].content.strip
+    code = l.css('td')[1].content.strip
     name = l.css('td')[2].content.strip
     pdf_url = c['pre_url'] + l.css('td a').attribute('href').value
 
-    com.each do |c| 
+    p time + ": " + name + ": " + l.css('td')[3].content.strip
+    com = Company.where(day: Date::today.to_s)
 
-      p.c['code'] 
-      #if ! c['name'].include?(name) then
+    if com.empty? then
 
-      #  p "insert"
-      #  io = open(pdf_url, "rb")
-      #  reader = PDF::Reader.new(io)
+      p "insert..."
+      mainProcess(c, time, code, name, pdf_url)
+      p "finish"
 
-      #    pdf = ""
-      #    reader.pages.each do |page|
-      #    pdf = page.text
+    else
 
-      #  end
+      com.each do |c| 
 
-      #  Company.create(time: time, code: code, name: name, data: pdf)
+        if ! c['name'].include?(name) then
 
+          p "insert..."
+          mainProcess(c, time, code, name, pdf_url)
+          p "finish"
 
-      #  mail = Mail.new do
+        else 
+          p "Already there"
+        end
 
-      #    from    c['mail']['to'][0]
-      #    to      c['mail']['to'][0]
-      #    cc      c['mail']['to'][1]
-      #    subject name + "(" + code + ")" + c['search_word'][0]
-      #    body    pdf
-      #    charset = "UTF-8"
-
-      #  end
-
-      #  mail.delivery_method(:smtp,
-      #    address:        c['mail']['host'], 
-      #    port:           25,
-      #    )
-      #  mail.deliver
-
-      #  p "ok"
-
-      #else 
-      #  p "aru"
-      #end
+      end
 
     end
 
-
   else
-    #p "none..."
-
+    #p "Nothing..."
   end
+
 end
+
 
