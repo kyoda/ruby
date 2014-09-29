@@ -63,7 +63,6 @@ doc = Nokogiri::HTML.parse(html, nil, charset)
 
 # frame
 frame_url = File.dirname(c['url']) + "/" + doc.css('frame')[1]['src']
-frame_url = c['test_url']
 html = open(frame_url) do |f|
   charset = f.charset 
   f.read
