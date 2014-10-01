@@ -16,6 +16,8 @@ ActiveRecord::Base.establish_connection(
 class Company < ActiveRecord::Base
 end
 
+# some pdf can't be read
+
 pdf_url = c['pdf_url'][0]
 
 io = open(pdf_url)
