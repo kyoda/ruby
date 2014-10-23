@@ -20,6 +20,8 @@ class Company < ActiveRecord::Base
 end
 
 
+
+
 def mainProcess(c, time, code, name, pdf_url)
 
   io = open(pdf_url, "rb")
@@ -51,6 +53,9 @@ def mainProcess(c, time, code, name, pdf_url)
   mail.deliver
 
 end
+
+
+
 
 charset = nil
 html = open(c['url']) do |f|
