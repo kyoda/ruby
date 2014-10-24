@@ -38,8 +38,8 @@ def mainProcess(c, time, code, name, pdf_url)
   mail = Mail.new do
 
     from    c['mail']['to'][0]
-    to      c['mail']['to'][0]
-    cc      c['mail']['to'][1]
+    to      c['mail']['to'][1]
+    cc      c['mail']['to'][2]
     subject name + "(" + code + ")" + c['search_word'][0]
     body    pdf
     charset = "UTF-8"
