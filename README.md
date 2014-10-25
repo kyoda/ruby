@@ -9,5 +9,5 @@
 
 > bundle exec wheneverize --clear-crontab
 
-> crontab -l
+> crontab [-l|-e]
 
