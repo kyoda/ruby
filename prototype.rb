@@ -98,9 +98,9 @@ doc.xpath('//table/tbody/tr').each do |l|
 
     else
 
-      com.each do |c| 
+      com.each do |db_data| 
 
-        if ! c['name'].include?(name) then
+        if ! db_data['name'].include?(name) then
 
           p "insert..."
           mainProcess(c, time, code, name, pdf_url)
