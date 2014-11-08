@@ -5,3 +5,5 @@ gem 'activerecord'
 gem 'mail'
 gem 'whenever'
 gem 'pdf-reader'
+gem 'rubyzip'
+
