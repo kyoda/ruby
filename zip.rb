@@ -10,7 +10,7 @@ Zip::File.open('tmp/091220141028066892.zip') do |zip_file|
     entry.extract(entry.name)
     # Read into memory
     content = entry.get_input_stream.read
-    p content
+    #p content
   end
 
   # Find specific entry
