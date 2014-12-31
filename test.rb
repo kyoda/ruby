@@ -25,7 +25,6 @@ end
 
 p a.getCount()
 
-p 33.123456789.to_i
-
-
+puts 33.123456789.to_i
+puts '33'.to_f
 
