@@ -28,3 +28,7 @@ p a.getCount()
 puts 33.123456789.to_i
 puts '33'.to_f
 
+{a: "aiueo", b: "kakikukeko"}.each do |n|
+  p n
+end
+
