@@ -30,5 +30,7 @@ puts '33'.to_f
 
 {a: "aiueo", b: "kakikukeko"}.each do |n|
   p n
+  puts "#####################"
+  puts n
 end
 
