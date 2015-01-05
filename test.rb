@@ -35,3 +35,5 @@ puts 'aiueo'[2]
   puts n
 end
 
+puts "aiu".methods.sort
+
