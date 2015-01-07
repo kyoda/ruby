@@ -2,6 +2,7 @@ class Aaaa
 
   @@str = "aiueo"
   @@count = 0
+  @@name = "yamada"
 
   def getStr
     @@count += 1;
@@ -10,6 +11,10 @@ class Aaaa
 
   def getCount
     @@count
+  end
+
+  def name
+    @@name
   end
 
 end
@@ -35,5 +40,7 @@ puts 'aiueo'[2]
   puts n
 end
 
-puts "aiu".methods.sort
+p a.name
+
+#puts "aiu".methods.sort
 
