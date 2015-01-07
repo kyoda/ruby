@@ -42,5 +42,8 @@ end
 
 p a.name
 
+e = nil 
+puts 3 * e.to_i;
+
 #puts "aiu".methods.sort
 
