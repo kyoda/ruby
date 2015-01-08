@@ -42,6 +42,11 @@ end
 
 p a.name
 
+def a.id
+  55
+end
+puts a.id
+
 e = nil 
 puts 3 * e.to_i;
 
