@@ -47,6 +47,17 @@ def a.id
 end
 puts a.id
 
+class Bbbb < Aaaa
+
+  def getName
+    @@name
+  end
+
+end 
+
+b = Bbbb.new()
+p b.getName
+
 e = nil 
 puts 3 * e.to_i;
 
