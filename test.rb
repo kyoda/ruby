@@ -49,6 +49,10 @@ puts a.id
 
 class Bbbb < Aaaa
 
+  def initialize
+    @@name = "aaaaaaa"
+  end
+
   def getName
     @@name
   end
