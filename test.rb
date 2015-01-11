@@ -49,8 +49,13 @@ puts a.id
 
 class Bbbb < Aaaa
 
+  @@data = {}
+
   def initialize
     @@name = "aaaaaaa"
+    @@data[:bbb] = nil;
+    puts "initialize..."
+    p @@data[:aaa].to_f * 3
   end
 
   def getName
@@ -64,6 +69,7 @@ p b.getName
 
 e = nil 
 puts 3 * e.to_i;
+
 
 #puts "aiu".methods.sort
 
