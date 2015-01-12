@@ -69,7 +69,7 @@ p b.getName
 
 e = nil 
 puts 3 * e.to_i;
-
+p "1,234".delete(',').to_i
 
 #puts "aiu".methods.sort
 
