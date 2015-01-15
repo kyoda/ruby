@@ -67,6 +67,8 @@ end
 b = Bbbb.new()
 p b.getName
 
+puts "#####################"
+
 e = nil 
 puts 3 * e.to_i;
 p "1,234,567".delete(',').to_i
