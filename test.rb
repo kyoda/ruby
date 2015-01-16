@@ -20,33 +20,23 @@ class Aaaa
 end
 
 a = Aaaa.new();
-c = "auaua"
 
 for i in 1..10 do
-  #p c 
   p a.getStr()
+  p a.getCount()
+  p a.name
 end
 
 
-p a.getCount()
-
-puts 33.123456789.to_i
-puts '33'.to_f
-puts 'aiueo'[2]
-
-{a: "aiueo", b: "kakikukeko"}.each do |n|
-  p n
-  puts "#####################"
-  puts n
-end
-
-p a.name
+############################################################## 
 
 def a.id
   55
 end
 puts a.id
 
+
+############################################################## 
 class Bbbb < Aaaa
 
   @@data = {}
@@ -69,9 +59,22 @@ p b.getName
 
 puts "#####################"
 
+############################################################## 
+
+#puts "aiu".methods.sort
+
+puts 33.123456789.to_i
+puts '33'.to_f
+puts 'aiueo'[2]
+
 e = nil 
 puts 3 * e.to_i;
 p "1,234,567".delete(',').to_i
 
-#puts "aiu".methods.sort
+
+{a: "aiueo", b: "kakikukeko"}.each do |n|
+  p n
+  puts "#####################"
+  puts n
+end
 
