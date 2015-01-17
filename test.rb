@@ -54,8 +54,10 @@ class Bbbb < Aaaa
 
 end 
 
+puts "Bbbb class"
 b = Bbbb.new()
 p b.getName
+p b.getCount
 
 puts "#####################"
 
