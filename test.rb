@@ -61,7 +61,6 @@ p b.getCount
 puts "###################################################################################"
 
 
-
 #puts "aiu".methods.sort
 
 puts 33.123456789.to_i
@@ -75,7 +74,6 @@ p "1,234,567".delete(',').to_i
 
 {a: "aiueo", b: "kakikukeko"}.each do |n|
   p n
-  puts "#####################"
   puts n
 end
 
