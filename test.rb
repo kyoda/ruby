@@ -68,7 +68,7 @@ puts '33'.to_f
 puts 'aiueo'[2]
 
 e = nil 
-puts 3 * e.to_i;
+puts 3 * e.to_i.to_i;
 p "1,234,567".delete(',').to_i
 
 
