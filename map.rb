@@ -13,7 +13,7 @@ p [5, 6] * 2
 hh = {cc: 3}
 p hh
 aa = [8, hh]
-p aa
+p aa * 3
 
 for i in 2007..2015 do
   p i
