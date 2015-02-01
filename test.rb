@@ -79,3 +79,8 @@ p e.object_id
   puts n
 end
 
+p [].methods.sort
+
+
+
+
