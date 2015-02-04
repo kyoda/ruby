@@ -1,3 +1,9 @@
+=begin
+  aiueo
+  kakikukeko
+  sashisuseso
+=end
+
 class Aaaa
 
   @@str = "aiueo"
