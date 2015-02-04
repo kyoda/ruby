@@ -76,11 +76,9 @@ p e.object_id
 
 {a: "aiueo", b: "kakikukeko"}.each do |n|
   p n
-  puts n
 end
 
-p [].methods.sort
-
+#p [].methods.sort
 
 
 
