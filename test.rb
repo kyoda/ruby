@@ -76,9 +76,8 @@ puts 'aiueo'[2]
 e = nil 
 puts 3 * e.to_i.to_i.to_i.to_i;
 p "1,234,567".delete(',').to_i
-p "object_id: "
-p e.object_id
-
+printf("object_id: %s\n", e.object_id)
+p e.methods
 
 {a: "aiueo", b: "kakikukeko"}.each do |n|
   p n
