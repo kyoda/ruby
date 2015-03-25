@@ -85,5 +85,10 @@ end
 
 #p [].methods.sort
 
+def yyy
+  yield
+end
 
+
+yyy { p "ayayaya"}
 
