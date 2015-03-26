@@ -85,8 +85,9 @@ end
 
 #p [].methods.sort
 
-def yyy
-  yield
+def yyy(&proc)
+  #yield
+  proc.call if block_given?
 end
 
 
