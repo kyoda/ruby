@@ -87,7 +87,8 @@ end
 
 def yyy(&proc)
   #yield
-  proc.call if block_given?
+  #proc.call if block_given?
+  yield  if block_given?
 end
 
 
