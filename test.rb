@@ -90,6 +90,8 @@ def yyy(&proc)
   yield if block_given?
 end
 
-
 yyy { p "ayayaya"}
+
+procedure = lambda {|word| p word }
+procedure.call("auaua")
 
