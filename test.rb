@@ -94,4 +94,5 @@ yyy { p "ayayaya"}
 
 procedure = lambda {|word| p word }
 procedure.call("auaua")
+p procedure
 
