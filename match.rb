@@ -1,4 +1,4 @@
-p "aiueo".match(/aiu/)
+p "aiueo".match(/ai(u)/)
 p "木曜日(333)".match(/(.+)\(\d+\)$/)[1]
 p "月曜日(333)".match(/(.+)\((\d+)\)$/)
 p "あいうえお"[3]
